@@ -1,0 +1,11 @@
+scrapy
+selenium
+mysql-connector-python
+mysqlx-connector-python
+scrapy-splash
+fastapi
+uvicorn
+SQLAlchemy
+pymysql
+cryptography
+pyjwt
