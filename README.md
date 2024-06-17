@@ -4,10 +4,6 @@
 
 docker-compose up -d
 
-la documentación cuando sube el proyecto esta el ``localhost:8000/docs``
+la documentación cuando sube el proyecto esta el ``localhost:8001/docs``
 
-## para poder correr el proyecto de scrapy
 
-* se instalan las librerias con del requirements
-* y se corre dentro de la carpera procesos ``scrapy crawl getProcesos``
-* el explorador el  firefox 113
