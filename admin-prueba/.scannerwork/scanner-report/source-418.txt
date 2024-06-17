@@ -1,0 +1,148 @@
+.container {
+    max-width: 800px;
+    margin: 32px auto;
+
+    h1 {
+        text-align: center;
+
+    }
+
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+    background-color: #7e8081;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+  #home {
+    background-color: #ffffff;
+  }
+  #about1 {
+    background-color: #ffc9c9;
+  }
+  #footer {
+    background-color: #060606d6;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    background-color: #eef0f1;
+    border-radius: 0 0 20px 20px;
+  }
+  nav .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+  }
+  nav .container ul li {
+    display: inline-block;
+    border-radius: 5px;
+  }
+  nav .container ul li a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: black;
+  }
+  nav .container ul li.active {
+    background-color: #c4c4c4;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+  nav .container ul li.active a {
+    color: #ffffff;
+  }
+
+.swiper-container {
+  width: 100%;
+  height: 50%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+
+/*****************/
+/*  section */
+/*****************/
+
+@media (max-width: 1023px) {
+    section {
+    height: 50vh;
+    width: 100%;
+    background-color: #7e8081;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+}
+@media (max-width: 900px) {
+    section {
+    height: 30vh;
+    width: 100%;
+    background-color: #7e8081;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+}
+@media (max-width: 640px) {
+    section {
+    height: 20vh;
+    width: 100%;
+    background-color: #7e8081;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 425px) {
+    section {
+    height: 10vh;
+    width: 100%;
+    background-color: #7e8081;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 375px) {
+    section {
+    height: 10vh;
+    width: 100%;
+    background-color: #7e8081;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+}

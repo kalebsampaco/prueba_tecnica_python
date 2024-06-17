@@ -1,0 +1,1 @@
+V 2cssXohrHsrc/@fuse/components/navigation/vertical/styles/appearances/compact.scss

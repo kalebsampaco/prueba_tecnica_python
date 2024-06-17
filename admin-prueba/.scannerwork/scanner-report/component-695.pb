@@ -1,0 +1,1 @@
+· 2cssXhrHsrc/assets/libs/animate.css/source/rotating_entrances/rotateInUpLeft.css

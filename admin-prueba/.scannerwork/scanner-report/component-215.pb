@@ -1,0 +1,1 @@
+× 2tsXƒhr6src/app/layout/common/shortcuts/shortcuts.component.ts

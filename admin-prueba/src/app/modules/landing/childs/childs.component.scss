@@ -1,0 +1,73 @@
+/* video.component.css */
+
+.video-container {
+  display: flex;
+}
+
+.video-section {
+  flex: 2; /* Tamaño del video en la parte superior */
+  padding: 20px;
+}
+
+video {
+  width: 100%;
+  max-height: 400px;
+}
+
+.chat-section {
+  flex: 1; /* Tamaño del chat en el lateral derecho */
+  padding: 20px;
+  border-left: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+.example-card {
+  max-width: 300px;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.chat-messages {
+  max-height: 300px;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+input {
+  flex: 2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  flex: 1;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

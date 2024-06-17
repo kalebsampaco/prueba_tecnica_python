@@ -1,17 +1,41 @@
 version: '3'
 
 services:
-  api:
-    container_name: api
+  api-admin:
+    container_name: api-admin
     build:
         context: ./api/
         dockerfile: Dockerfile
     image: fastapi:latest
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "8001:8000"
     depends_on:
       - db
+
+  front-prueba:
+    container_name: front-prueba
+    image: front-prueba:latest
+    build:
+        context: ./admin-prueba
+        dockerfile: Dockerfile
+    deploy:
+      # replicas: 1
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: 250M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+    restart: unless-stopped
+    ports:
+      - "80:80"  # Puerto para la primera réplica
+      # - "4201:80"  # Puerto para la segunda réplica
+
+    depends_on:
+      - db
+      - api-admin
 
   db:
     container_name: ps-mysql

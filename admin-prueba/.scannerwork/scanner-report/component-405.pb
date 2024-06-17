@@ -1,0 +1,1 @@
+• 2cssXhrDsrc/app/modules/page-landing/components/navbar/navbar.component.scss

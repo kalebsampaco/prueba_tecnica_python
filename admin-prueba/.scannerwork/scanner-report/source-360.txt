@@ -1,0 +1,220 @@
+<div class="flex flex-col items-center justify-center w-full h-full mx-2 dark bg-blue">
+    <h2>Autores de estudios bíblicos</h2>
+    <div class="w-full max-w-screen-xl mb-15">
+        <div class="flex flex-wrap w-full   max-w-screen-xl mx-2 mb-5  ">
+            <div class="grid grid-rows-1 " *ngIf="!courses && !course">
+
+                <div class="flex flex-row items-center justify-between w-full  max-w-screen-xl mx-2 mb-5">
+                    <div class="flex items-center">
+                        <div class="flex items-center">
+                            <span class="mr-4">Mostrando {{ autors.length }} resultados de
+                                    {{ totalAutors }}</span
+                                >
+                                <div class="flex items-center">
+                                        <button
+                                            mat-icon-button
+                                            class="mat-icon-button mat-button-base"
+                                            (click)="paginate('-')"
+                                        >
+                                            <mat-icon
+                                                class="text-blue icon-size-5"
+                                                [svgIcon]="'mat_outline:arrow_back_ios'"
+                                            ></mat-icon>
+                                        </button>
+                                        <span class="text-secondary font-bold mr-2 ml-2">{{
+                                            page
+                                        }}</span>
+                                        <button mat-icon-button class="mat-icon-button mat-button-base" (click)="paginate('+')">
+                                            <mat-icon
+                                                class="text-blue icon-size-5"
+                                                [svgIcon]="'mat_outline:arrow_forward_ios'"
+                                            ></mat-icon>
+                                        </button>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex flex-wrap items-start w-full max-w-500">
+                    @for (autor of autors; track autor) {
+
+                        <mat-card class="example-card" (click)="goAutorCursos(autor)" style="cursor:pointer">
+                            <mat-card-header>
+                                <mat-card-title-group>
+                                <mat-card-title>{{autor.attributes.name}}</mat-card-title>
+                                <!-- <mat-card-subtitle>{{autor.attributes.imagen?.data.attributes | json}}</mat-card-subtitle> -->
+                                <img mat-card-sm-image [src]="autor.attributes.imagen?.data.attributes?.formats?.small ? 'http://localhost:1337' + autor.attributes.imagen?.data?.attributes?.formats?.small?.url : 'http://localhost:1337' + autor.attributes.imagen?.data?.attributes?.formats?.thumbnail?.url" >
+                                </mat-card-title-group>
+                            </mat-card-header>
+                            <mat-card-content>
+                                {{autor.attributes.experience}}
+                            </mat-card-content>
+                        </mat-card>
+                    }
+                </div>
+            </div>
+
+            <div class="grid grid-rows-1 " *ngIf="courses && !course">
+                <div class="grid items-center justify-self-start mt-3 mb-8">
+                    <div class="justify-self-end">
+                        <button class="px-3" mat-button [color]="'primary'" (click)="validateBack(false, false)">
+                            <mat-icon
+                                class="ml-2 icon-size-5"
+                                [svgIcon]="'heroicons_solid:arrow-narrow-left'"></mat-icon>
+
+                            Volver autores
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-row items-center justify-between w-full  max-w-screen-xl mx-2 mb-5">
+                    <div class="flex items-center">
+                        <div class="flex items-center">
+                            <span class="mr-4">Mostrando {{ cursos.length }} resultados de
+                                    {{ totalCursos }}</span
+                                >
+                                <div class="flex items-center">
+                                        <button
+                                            mat-icon-button
+                                            class="mat-icon-button mat-button-base"
+                                            (click)="paginatecourses('-')"
+                                        >
+                                            <mat-icon
+                                                class="text-blue icon-size-5"
+                                                [svgIcon]="'mat_outline:arrow_back_ios'"
+                                            ></mat-icon>
+                                        </button>
+                                        <span class="text-secondary font-bold mr-2 ml-2">{{
+                                            page
+                                        }}</span>
+                                        <button mat-icon-button class="mat-icon-button mat-button-base" (click)="paginatecourses('+')">
+                                            <mat-icon
+                                                class="text-blue icon-size-5"
+                                                [svgIcon]="'mat_outline:arrow_forward_ios'"
+                                            ></mat-icon>
+                                        </button>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex flex-wrap items-start w-full max-w-500">
+                    @for (curso of cursos; track curso) {
+
+                        <mat-card class="example-card" (click)="goCourse(curso)" style="cursor:pointer">
+                            <mat-card-header>
+                                <mat-card-title-group>
+                                <mat-card-title>{{curso.attributes.nombre_curso}}</mat-card-title>
+                                <!-- <mat-card-subtitle>{{curso.attributes.autor}}</mat-card-subtitle> -->
+                                <img mat-card-sm-image [src]="'http://localhost:1337' + curso.attributes.imagen?.data.attributes.formats.small.url" >
+                                </mat-card-title-group>
+                            </mat-card-header>
+                            <mat-card-content>
+                                {{curso.attributes.description}}
+                            </mat-card-content>
+                        </mat-card>
+                    }
+                </div>
+            </div>
+
+
+            <mat-card  class="flex flex-col items-estart justify-start w-full h-full lg:p-4 md:p-4 sm:p-2 pb-6 lg:mx-4 md:mx-4 sm:-ml-10 my-4 bg-black" *ngIf="!courses && course">
+                <div class="grid items-center justify-self-start mt-3 mb-8">
+                    <div class="justify-self-end">
+                        <button class="px-3" mat-button [color]="'primary'" (click)="validateBack(true, false)">
+                            <mat-icon
+                                class="ml-2 icon-size-5"
+                                [svgIcon]="'heroicons_solid:arrow-narrow-left'"></mat-icon>
+
+                            Volver a cursos
+                        </button>
+                    </div>
+                </div>
+                <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3">
+                    <div class="col-span-4 flex-wrap mx-5 w-auto">
+                        <div>
+                            <youtube-player
+                                [videoId]="courseSelected.attributes.url.split('?v=')[1]"
+                                suggestedQuality="highres"
+                                    [height]="videoHeight"
+                                    [width]="videoWidth"
+                                    [startSeconds]="4"
+                                    [endSeconds]="8">
+                            </youtube-player>
+                        </div>
+
+                        <!-- Message field -->
+                            <div class="flex items-end p-4 border-t  bg-black">
+                                <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded fuse-mat-bold sm:w-auto md:w-full lg:w-full bg-black">
+                                    <textarea
+                                        class="min-h-5 my-0 resize-none "
+                                        style="margin: 11px 0 !important; padding: 0 !important;"
+                                        [(ngModel)]="mensaje"
+                                        (keydown.Enter)="SendMessage()"
+                                        [rows]="1"
+                                        matInput
+                                        #messageInput></textarea>
+                                </mat-form-field>
+                                <div class="flex items-center h-11 my-px ml-4">
+                                    <button
+                                        mat-icon-button (click)="SendMessage()">
+                                        <mat-icon
+                                            class="rotate-90"
+                                            [svgIcon]="'heroicons_outline:paper-airplane'"></mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+
+                        <div class="col-span-3 -mt-4 ml-4">
+                            <!-- Chat en el lateral derecho -->
+                            <div class="grid chat-messages">
+                            <!-- Lista de mensajes del chat -->
+                             @for (chat of courseSelected.attributes.curso_chats.data; track $index) {
+                                <div class="relative max-w-3/4 px-3 py-2 rounded-lg " [ngClass]="{
+                                    'grid   bg-blue-700 text-blue-50 justify-self-start  ': $index % 2 === 0,
+                                    'grid  bg-gray-500 text-gray-50 justify-self-end': $index % 2 !== 0
+                             }"><span>{{chat.attributes.user_id+':'+'  '}}{{chat.attributes.text}}</span></div>
+                            }
+                            <!-- Puedes iterar sobre los mensajes si provienen de un servicio -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-span-3">
+                        <!-- Material debajo del video -->
+                        <span class="font-sans text-lg font-semibold text-white ml-5">Material del Curso</span>
+                        <mat-accordion class="example-headers-align">
+                            @for (file of materiales; track $index) {
+
+                                <mat-expansion-panel [expanded]="step === index" (opened)="setStep(0)" class="bg-black" hideToggle>
+                                    <mat-expansion-panel-header>
+                                    <mat-panel-title class="text-white">
+                                        {{file.attributes.name}}
+                                    </mat-panel-title>
+                                    <mat-panel-description class="text-white">
+                                            Descargar documento
+                                            <a
+                                                [href]="'http://localhost:1337' + file?.attributes?.file?.data[0]?.attributes?.url"
+                                                *ngIf="file?.attributes?.file?.data[0]?.attributes?.url"
+                                                target="_blank"
+                                            >
+                                                <mat-icon>cloud_download</mat-icon>
+                                            </a>
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <mat-action-row>
+                                    <button mat-button color="primary" (click)="nextStep()" class="text-white">Next</button>
+                                    </mat-action-row>
+                                </mat-expansion-panel>
+                            }
+
+                            </mat-accordion>
+
+                    </div>
+                </div>
+
+
+            </mat-card>
+        </div>
+    </div>
+</div>

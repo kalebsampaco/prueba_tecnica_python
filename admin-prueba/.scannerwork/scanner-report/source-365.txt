@@ -1,0 +1,47 @@
+<div class="flex flex-col items-center justify-center w-full h-full mx-4">
+    <div class="w-full max-w-screen-lg mb-15">
+        <div class="flex flex-wrap w-full  max-w-screen-xl mx-2 mb-15 mt-10">
+            <fuse-card *ngFor="let member of colaboradorSelected" class="flex flex-col items-center justify-center max-w-80 w-full p-4 pb-6 mx-4 my-4 filter-info">
+                <img class="w-32 h-32 rounded-full" src="{{member.avatar}}" alt="Card cover image">
+                <div class="text-2xl font-semibold leading-tight text-center mt-8">{{member.name}}</div>
+                <div class="text-secondary leading-tight text-center mt-1">{{member.email}}</div>
+                <hr class="w-full border-t mt-8 mb-0">
+                <form class="">
+                    <div class="form-floating flex flex-col mt-3">
+                        <mat-form-field appearance="outline" class="datePicker">
+                            <mat-label>Fecha de la sesión</mat-label>
+                            <input matInput [matDatepicker]="picker" name="fecha" [(ngModel)]="member.fecha">
+                            <!-- [matDatepickerFilter]="filtroFechas" (dateChange)="cargarHoras('change', $event)" -->
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-floating flex flex-col mt-3 mb-5">
+                        <select class="form-control selectDepartment" [(ngModel)]="member.hora" name="horaI" id="floatingInput2"><!-- (change)="calcularHoraFin($event.target.value)" -->
+                            <option value="" disabled selected>--:--</option>
+                            <option *ngFor="let hora of filtroHoras" [value]="hora">{{ hora }}</option>
+                        </select>
+                        <label for="floatingInput2">Hora de inicio</label>
+                    </div>
+                </form>
+
+                <div class="flex flex-col mt-3">
+                    <mat-checkbox *ngFor="let service of member.servicios" (change)="CalcularServicio(member, service, $event)" [checked]="true" class="my-1 mb-10" [color]="'primary'">
+                        {{service}}
+                    </mat-checkbox>
+
+                </div>
+                <div class="text-2xl font-semibold leading-tight mt-1 mb-10">${{member.valor | currency:'COP':'symbol':'4.2-2'}}</div>
+                <hr class="w-full border-t mt-0 mb-8">
+                <button class="px-6 mt-4" mat-raised-button [color]="'primary'" (click)="ReProgramAgendamiento(member)">
+                    Cambiar Agendamiento
+                </button>
+
+                <button class="px-6 mt-4" mat-raised-button [color]="'warn'" (click)="Eliminar(member)">
+                    Eliminar Agendamiento
+                </button>
+
+            </fuse-card>
+        </div>
+    </div>
+</div>

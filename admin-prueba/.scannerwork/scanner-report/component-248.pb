@@ -1,0 +1,1 @@
+ø 2webXEhr>src/app/layout/layouts/vertical/compact/compact.component.html

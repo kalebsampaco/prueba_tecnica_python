@@ -1,0 +1,48 @@
+<div class="grid grid-cols-1 gap-1 w-full">
+    <app-nav-light (menuClick)="scrollToElement($event)"/>
+    <div class="grid grid-cols-1 gap-1">
+        <section class="relative block mb-50 opacity-50" id="home">
+            <div class="swiper-container absolute end-0 top-0">
+                <div id="carouselExampleControls" class="carousel carousel-dark slide swiper-wrapper" data-bs-ride="carousel" >
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner ">
+                        <div class="carousel-item active">
+                        <img src="/assets/images/bg/1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="/assets/images/bg/2.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button> -->
+                </div>
+            </div>
+        </section>
+
+        <app-about id="about" />
+
+        <app-services id="services" />
+
+        <app-agency-tab id="agency" />
+
+        <app-cta id="cta" />
+
+        <app-client id="client" />
+
+        <app-pricing id="pricing" />
+
+        <app-blogs id="blogs"/>
+
+        <app-get-in-touch id="contact" />
+        <app-footer id="footer" />
+    </div>
+</div>

@@ -1,0 +1,1 @@
+ˆ 2webXhrDsrc/app/modules/page-landing/components/footer/footer.component.html

@@ -1,12 +1,10 @@
-from fastapi import APIRouter, HTTPException
+import json
+
 from config.db import conn
+from config.jwt_config import tomar_token, validate_token
+from fastapi import APIRouter, HTTPException
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel, Field
-from models.procesos import process
-from models.movimientos import mov
-from models.actuaciones import act
-import json
-from config.jwt_config import tomar_token, validate_token
 
 login = APIRouter()
 

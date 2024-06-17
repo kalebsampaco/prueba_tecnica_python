@@ -1,0 +1,1 @@
+Å 2cssXhrAsrc/assets/libs/animate.css/source/back_entrances/backInRight.css

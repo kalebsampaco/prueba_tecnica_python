@@ -1,0 +1,1 @@
+— 2tsXühr$src/app/mock-api/apps/mailbox/api.ts

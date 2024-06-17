@@ -1,0 +1,1 @@
+’ 2tsX·hr1src/app/mock-api/apps/ecommerce/inventory/data.ts

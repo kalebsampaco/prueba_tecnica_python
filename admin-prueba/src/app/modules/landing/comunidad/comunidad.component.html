@@ -1,0 +1,104 @@
+<div class="flex flex-col items-center justify-center w-full h-full mx-4">
+        <div class="grid grid-cols-2 gap-4 w-full  mb-15" >
+        <div class="w-full ">
+
+            <!-- Form -->
+            <form [formGroup]="accountForm">
+
+                <!-- Section -->
+                <div class="w-full">
+                    <div class="text-xl">Crear Producto</div>
+                    <div class="text-secondary">Llene todos los datos para crear el producto</div>
+                </div>
+                <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+                    <!-- Nombres -->
+                    <div class="sm:col-span-4">
+                        <mat-form-field class="fuse-mat-no-subscript w-full">
+                            <mat-label class="text-white">Nombre producto</mat-label>
+                            <mat-icon
+                                class="icon-size-5"
+                                [svgIcon]="'heroicons_solid:user'"
+                                matPrefix></mat-icon>
+                            <input
+                                placeholder="Nombre producto"
+                                [formControlName]="'nombre'"
+                                matInput>
+                        </mat-form-field>
+                    </div>
+                    <!-- cedula -->
+                    <div class="sm:col-span-4">
+                        <mat-form-field class="fuse-mat-no-subscript fuse-mat-emphasized-affix w-full">
+                            <mat-label>Código</mat-label>
+                            <input
+                                 placeholder="Código"
+                                [formControlName]="'codigo'"
+                                matInput>
+                        </mat-form-field>
+                    </div>
+
+                     <!-- dirección -->
+                    <div class="sm:col-span-4">
+                        <mat-form-field class="fuse-mat-no-subscript fuse-mat-emphasized-affix w-full">
+                            <mat-label>Costo del producto</mat-label>
+                            <input
+                                type="number"
+                                 placeholder="Costo del producto"
+                                [formControlName]="'valor_venta'"
+                                matInput>
+                        </mat-form-field>
+                    </div>
+                    <!-- telefono -->
+                    <div class="sm:col-span-4">
+                        <mat-slide-toggle [formControlName]="'iva'">tiene iva: {{accountForm.get('iva').value}}</mat-slide-toggle>
+                    </div>
+                    <!-- Email -->
+                    <div class="sm:col-span-4">
+                        <mat-form-field class="fuse-mat-no-subscript w-full">
+                            <mat-label>Porcentaje</mat-label>
+                            <input
+                                type="number"
+                                placeholder="Porcentaje"
+                                [formControlName]="'porcentaje'"
+                                matInput>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center justify-end">
+                   <!--  <button
+                        mat-stroked-button
+                        type="button">
+                        Cancel
+                    </button> -->
+                    <button
+                        class="ml-4"
+                        mat-flat-button
+                        (click)="crearProducto()"
+                        type="button"
+                        [disabled]="accountForm.invalid"
+                        [color]="'primary'">Crear Producto
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="w-full p-10">
+
+            <table mat-table [dataSource]="data" class="mat-elevation-z8">
+                @for (column of displayedColumns; track column) {
+                    <ng-container [matColumnDef]="column">
+                    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                    </ng-container>
+                }
+
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+            </table>
+
+        </div>
+
+    </div>
+</div>

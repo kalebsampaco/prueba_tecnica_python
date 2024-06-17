@@ -1,0 +1,128 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable id-blacklist */
+/* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/naming-convention */
+import moment from 'moment';
+
+const plans: any = [
+    {
+        id: 0,
+        title: 'Principal',
+        content: '',
+        url: 'home',
+        icon:'home',
+        rol: ["PYMES_DIR"]
+    },
+    {
+        id: 1,
+        title: 'Comunidad espiritual',
+        content: '',
+        url: 'comunidad',
+        icon:'group',
+        rol: ["PYMES_DIR"]
+    },
+    {
+        id: 2,
+        title: 'Estudiando la bíblia',
+        content: '',
+        url: 'estudiando',
+        icon:'book',
+        rol: ["PYMES_DIR"]
+    },
+    {
+        id: 3,
+        title: 'Formación para niños',
+        content: '',
+        url: 'childs',
+        icon:'child_care',
+        rol: ["PYMES_DIR"]
+    },
+    {
+        id: 4,
+        title: 'Consejería Online',
+        content: '',
+        url: 'consejeria',
+        icon:'assistant',
+        rol: ["PYMES_DIR"]
+    },
+    {
+        id: 5,
+        title: 'Blogs',
+        content: '',
+        url: 'blogs',
+        icon:'library_books',
+        rol: ['ABOGADO_PYME', "PYMES_DIR"]
+    },
+    {
+        id: 6,
+        title: 'Enriquecimiento espiritual',
+        content: '',
+        url: 'espiritual',
+        icon:'trending_up',
+        rol: ["PYMES_DIR"]
+    },
+    {
+        id: 7,
+        title: 'Soporte',
+        content: '',
+        url: 'soporte',
+        icon:'contact_support',
+        rol: ["PYMES_DIR"]
+    },
+
+    /* {
+        id: 5,
+        title: 'Dias hábiles',
+        content: '',
+        url: 'dias-habiles',
+        icon:'calendar_today',
+        rol: ['ABOGADO_PYME']
+    }, */
+];
+const register_types: any = [
+    {
+        id: 0,
+        title: 'Principal',
+        content: '',
+        url: 'principal',
+        icon:''
+    },
+];
+
+const getToken = function () {
+    const generate = function generatedigit(input: string) {
+        // eslint-disable-next-line quotes
+        const array = input.split('').reverse();
+
+        let total = 0;
+        let i = 1;
+        array.forEach((number: any) => {
+            number = parseInt(number, 10);
+            if (i % 2 === 0) {
+                total = total + number;
+            } else {
+                total = total + number * 3;
+            }
+            i++;
+        });
+        return Math.ceil(total / 10) * 10 - total;
+    };
+
+    const aleatorNumber = Math.floor(100000 + Math.random() * 900000)
+        .toString()
+        .substring(0, 3);
+    const timestamp = moment().utcOffset(-5).unix();
+    const prevCheck = `${aleatorNumber}${timestamp}`; // 13 digitos
+    const digit = generate(prevCheck);
+    return Buffer.from(`${timestamp}:${digit}:${aleatorNumber}`).toString(
+        'base64'
+    );
+};
+
+export const UTILITIES_CONSTANTS = Object.freeze({
+    plans: plans,
+    register_types: register_types,
+    getToken: getToken,
+});
