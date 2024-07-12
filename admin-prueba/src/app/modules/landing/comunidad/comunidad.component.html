@@ -7,58 +7,21 @@
 
                 <!-- Section -->
                 <div class="w-full">
-                    <div class="text-xl">Crear Producto</div>
-                    <div class="text-secondary">Llene todos los datos para crear el producto</div>
+                    <div class="text-xl">Crear Categoria</div>
+                    <div class="text-secondary">Llene todos los datos para crear la categoria</div>
                 </div>
                 <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
                     <!-- Nombres -->
                     <div class="sm:col-span-4">
                         <mat-form-field class="fuse-mat-no-subscript w-full">
-                            <mat-label class="text-white">Nombre producto</mat-label>
+                            <mat-label class="text-white">Nombre Categoria</mat-label>
                             <mat-icon
                                 class="icon-size-5"
                                 [svgIcon]="'heroicons_solid:user'"
                                 matPrefix></mat-icon>
                             <input
-                                placeholder="Nombre producto"
-                                [formControlName]="'nombre'"
-                                matInput>
-                        </mat-form-field>
-                    </div>
-                    <!-- cedula -->
-                    <div class="sm:col-span-4">
-                        <mat-form-field class="fuse-mat-no-subscript fuse-mat-emphasized-affix w-full">
-                            <mat-label>Código</mat-label>
-                            <input
-                                 placeholder="Código"
-                                [formControlName]="'codigo'"
-                                matInput>
-                        </mat-form-field>
-                    </div>
-
-                     <!-- dirección -->
-                    <div class="sm:col-span-4">
-                        <mat-form-field class="fuse-mat-no-subscript fuse-mat-emphasized-affix w-full">
-                            <mat-label>Costo del producto</mat-label>
-                            <input
-                                type="number"
-                                 placeholder="Costo del producto"
-                                [formControlName]="'valor_venta'"
-                                matInput>
-                        </mat-form-field>
-                    </div>
-                    <!-- telefono -->
-                    <div class="sm:col-span-4">
-                        <mat-slide-toggle [formControlName]="'iva'">tiene iva: {{accountForm.get('iva').value}}</mat-slide-toggle>
-                    </div>
-                    <!-- Email -->
-                    <div class="sm:col-span-4">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
-                            <mat-label>Porcentaje</mat-label>
-                            <input
-                                type="number"
-                                placeholder="Porcentaje"
-                                [formControlName]="'porcentaje'"
+                                placeholder="Nombre categoria"
+                                [formControlName]="'categoria'"
                                 matInput>
                         </mat-form-field>
                     </div>
@@ -74,7 +37,7 @@
                     <button
                         class="ml-4"
                         mat-flat-button
-                        (click)="crearProducto()"
+                        (click)="crearCategoria()"
                         type="button"
                         [disabled]="accountForm.invalid"
                         [color]="'primary'">Crear Producto

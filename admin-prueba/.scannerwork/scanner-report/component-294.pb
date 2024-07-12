@@ -1,1 +1,0 @@
-¦ 2tsXƒhr%src/app/mock-api/common/search/api.ts

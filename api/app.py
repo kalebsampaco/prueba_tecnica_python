@@ -2,13 +2,12 @@ from config.db import engine, meta
 from config.openapi import tags_metadata
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from models.clientes import cli
-from models.productos import prod
-from models.ventas_detalle import ventas_detalle
-from models.ventas_total import ventas_total
+from models.autores import at
+from models.categorias import ct
+from models.editorial import ed
+from models.libros import lb
 from routes.create import create
 from routes.login import login
-from routes.ventas import ventas
 
 app = FastAPI(
     title="Admin API",
@@ -29,9 +28,8 @@ app.add_middleware(
 )
 
 # Crear todas las tablas en el orden correcto
-# meta.create_all(engine)
+meta.create_all(engine)
 
 app.include_router(create)
-app.include_router(ventas)
 app.include_router(login)
 

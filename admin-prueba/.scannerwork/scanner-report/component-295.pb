@@ -1,1 +1,0 @@
-§ 2tsXthr(src/app/mock-api/common/shortcuts/api.ts

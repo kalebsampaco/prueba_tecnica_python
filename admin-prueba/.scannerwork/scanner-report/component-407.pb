@@ -1,1 +1,0 @@
-— 2webXPhrFsrc/app/modules/page-landing/components/pricing/pricing.component.html

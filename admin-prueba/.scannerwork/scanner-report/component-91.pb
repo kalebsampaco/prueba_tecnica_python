@@ -1,1 +1,0 @@
-[ 2cssXhr@src/@fuse/components/navigation/vertical/vertical.component.scss

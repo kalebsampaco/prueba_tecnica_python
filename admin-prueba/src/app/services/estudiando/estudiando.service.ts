@@ -58,35 +58,35 @@ export class EstudiandoService {
         );
     }
 
-    getClientes(): Observable<any[]> {
-        return this._apiServiceHttp.get('clientes').pipe(
-            switchMap((clientes: any) => {
-                console.log(clientes)
+    getAutores(): Observable<any[]> {
+        return this._apiServiceHttp.get('autores').pipe(
+            switchMap((autores: any) => {
+                console.log(autores)
                     // let values = [];
                     // Return a new observable with the response
                     // prays = prays?.data?.filter((el: any) => el.attributes.idUser === Number(data.id));
                     // console.log(prays);
-                    return of(clientes);
+                    return of(autores);
             })
         );
     }
 
-    getProductos(): Observable<estudio[]> {
-        return this._apiServiceHttp.get('productos').pipe(
-            switchMap((prod: any) => {
-                console.log(prod)
+    getCategorias(): Observable<estudio[]> {
+        return this._apiServiceHttp.get('categoria').pipe(
+            switchMap((cat: any) => {
+                console.log(cat)
                     // let values = [];
                     // Return a new observable with the response
                     // prays = prays?.data?.filter((el: any) => el.attributes.idUser === Number(data.id));
                     // console.log(prays);
-                    return of(prod);
+                    return of(cat);
             })
         );
     }
 
-    createClientes(data:any) {
+    createAutor(data:any) {
 
-        return this._apiServiceHttp.post('clientes', data).pipe(
+        return this._apiServiceHttp.post('autores', data).pipe(
             switchMap((res: any) => {
                 console.log(res);
                     return of(res);
@@ -94,9 +94,9 @@ export class EstudiandoService {
         );
     }
 
-    createProduct(data:any) {
+    createCategoria(data:any) {
 
-        return this._apiServiceHttp.post('productos', data).pipe(
+        return this._apiServiceHttp.post('categoria', data).pipe(
             switchMap((res: any) => {
                 console.log(res);
                     return of(res);

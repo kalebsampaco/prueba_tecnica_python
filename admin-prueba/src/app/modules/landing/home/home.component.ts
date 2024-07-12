@@ -4,13 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EstudiandoService } from 'app/services/estudiando/estudiando.service';
 
 
-export interface Cliente {
-    id: number,
-    cedula: string,
-    nombres: string,
-    direccion: string,
-    telefono: string,
-    email: string
+export interface Autor {
+    idAutor: number,
+    Autor: string,
 }
 @Component({
     selector     : 'landing-home',
@@ -24,10 +20,10 @@ export class LandingHomeComponent
     private _mobileQueryListener: () => void;
     accountForm: FormGroup;
     clientes: any;
-    ELEMENT_DATA: Cliente[] = [];
-    displayedColumns: string[] = ['nombres', 'cedula', 'telefono', 'email'];
+    ELEMENT_DATA: Autor[] = [];
+    displayedColumns: string[] = ['idAutor', 'Autor'];
     columnsToDisplay: string[] = this.displayedColumns.slice();
-    data: Cliente[]
+    data: Autor[]
 
     /**
      * Constructor
@@ -46,29 +42,23 @@ export class LandingHomeComponent
     ngOnInit(): void {
         // Create the form
         this.accountForm = this._formBuilder.group({
-            cedula: ['', Validators.required],
-            nombres: ['', Validators.required],
-            direccion: ['', Validators.required],
-            telefono: ['', Validators.required],
-            email: ['', Validators.required]
+            Autor: ['', Validators.required],
         });
-            this.traerClientes();
+            this.traerAutores();
     }
 
-    traerClientes(){
-        this._estudiandoService.getClientes().subscribe((clientes:any) =>{
-            console.log(clientes)
-            this.ELEMENT_DATA = clientes
+    traerAutores(){
+        this._estudiandoService.getAutores().subscribe((autores:any) =>{
+            console.log(autores)
+            this.ELEMENT_DATA = autores
             this.data = this.ELEMENT_DATA;
         })
     }
 
-    crearClientes(){
+    crearAutor(){
         const body = this.accountForm.getRawValue()
-        body.telefono = String(body.telefono)
-        body.cedula = String(body.cedula)
         console.log(body)
-        this._estudiandoService.createClientes(body).subscribe((clientes:any) =>{
+        this._estudiandoService.createAutor(body).subscribe((autor:any) =>{
              this.accountForm.reset();
              this.ngOnInit();
         })

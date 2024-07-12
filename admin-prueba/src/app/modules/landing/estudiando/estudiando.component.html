@@ -8,83 +8,60 @@
 
                     <!-- Section -->
                     <div class="w-full">
-                        <div class="text-xl">Regitrar venta</div>
-                        <div class="text-secondary">Llene todos los datos para registrar la venta</div>
+                        <div class="text-xl">Crear libro</div>
+                        <div class="text-secondary">Llene todos los datos para crear el libro</div>
                     </div>
                     <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
-                        <!-- Nombres -->
+                        <!-- Título -->
                         <div class="sm:col-span-4">
                             <mat-form-field class="fuse-mat-no-subscript w-full">
-                                <mat-label class="text-white">Consecutivo de la factura</mat-label>
+                                <mat-label class="text-white">Título</mat-label>
                                 <input
-                                    placeholder="Consecutivo de la factura"
-                                    [formControlName]="'consecutivo'"
+                                    placeholder="Título del libro"
+                                    [formControlName]="'titulo'"
                                     matInput>
-                            </mat-form-field>
-                        </div>
-                        <!-- cliente -->
-                        <div class="sm:col-span-4">
-                            <mat-form-field class="">
-                                <mat-label>Cliente</mat-label>
-                                <input type="text"
-                                    placeholder="Cliente"
-                                    aria-label="Cliente"
-                                    matInput
-                                    [formControl]="myControl"
-                                    [matAutocomplete]="auto">
-                                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayFn">
-                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option.nombres}}</mat-option>
-                                </mat-autocomplete>
                             </mat-form-field>
                         </div>
 
-                         <!-- producto -->
+                         <!-- Fecha -->
                         <div class="sm:col-span-4">
-                            <mat-form-field class="">
-                                <mat-label>Producto</mat-label>
-                                <input type="text"
-                                    placeholder="Producto"
-                                    aria-label="Producto"
-                                    matInput
-                                    [formControl]="myControl1"
-                                    [matAutocomplete]="auto1">
-                                <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete" [displayWith]="displayFn1">
-                                    <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">{{option.nombre}}</mat-option>
-                                </mat-autocomplete>
+                            <mat-form-field class="fuse-mat-no-subscript w-full">
+                                <mat-label class="text-white">Fecha</mat-label>
+                                <input
+                                    placeholder="Fecha"
+                                    [formControlName]="'fecha_publicacion'"
+                                    matInput>
                             </mat-form-field>
                         </div>
+
+                         <!-- Autor -->
+                        <div class="sm:col-span-4">
+                            <mat-form-field class="fuse-mat-no-subscript w-full">
+                                <mat-label class="text-white">Autor</mat-label>
+                                <input
+                                    placeholder="Autor"
+                                    [formControlName]="'Autor'"
+                                    matInput>
+                            </mat-form-field>
+                        </div>
+
                         <!-- telefono -->
                         <div class="sm:col-span-4">
-                            <!-- <mat-slide-toggle [formControlName]="'iva'">tiene iva: {{accountForm.get('iva').value}}</mat-slide-toggle> -->
                         </div>
                         <!-- Email -->
                         <div class="sm:col-span-4">
-                            <!-- <mat-form-field class="fuse-mat-no-subscript w-full">
-                                <mat-label>Porcentaje</mat-label>
-                                <input
-                                    type="number"
-                                    placeholder="Porcentaje"
-                                    [formControlName]="'porcentaje'"
-                                    matInput>
-                            </mat-form-field> -->
                         </div>
                     </div>
 
                     <!-- Actions -->
                     <div class="flex items-center justify-end">
-                    <!--  <button
-                            mat-stroked-button
-                            type="button">
-                            Cancel
-                        </button> -->
                         <button
                             class="ml-4"
                             mat-flat-button
-                            (click)="crearProducto()"
                             type="button"
-                            [color]="'primary'">Crear Producto
+                            [disabled]="accountForm.invalid"
+                            [color]="'primary'">Crear Libro
                         </button>
-                        <!-- [disabled]="accountForm.invalid" -->
                     </div>
                 </form>
 

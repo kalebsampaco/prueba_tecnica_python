@@ -1,1 +1,0 @@
-˜ 2tsX–hr%src/app/mock-api/apps/mailbox/data.ts

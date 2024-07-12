@@ -1,1 +1,0 @@
-Ö 2webXàhr8src/app/layout/common/shortcuts/shortcuts.component.html

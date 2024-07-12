@@ -7,72 +7,21 @@
 
                 <!-- Section -->
                 <div class="w-full">
-                    <div class="text-xl">Crear cliente</div>
-                    <div class="text-secondary">Llene todos los datos para crear el cliente</div>
+                    <div class="text-xl">Crear autor</div>
+                    <div class="text-secondary">Llene todos los datos para crear el autor</div>
                 </div>
                 <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
                     <!-- Nombres -->
                     <div class="sm:col-span-4">
                         <mat-form-field class="fuse-mat-no-subscript w-full">
-                            <mat-label class="text-white">Nombre completo</mat-label>
+                            <mat-label class="text-white">Nombre Autor</mat-label>
                             <mat-icon
                                 class="icon-size-5"
                                 [svgIcon]="'heroicons_solid:user'"
                                 matPrefix></mat-icon>
                             <input
                                 placeholder="Nombre completo"
-                                [formControlName]="'nombres'"
-                                matInput>
-                        </mat-form-field>
-                    </div>
-                    <!-- cedula -->
-                    <div class="sm:col-span-4">
-                        <mat-form-field class="fuse-mat-no-subscript fuse-mat-emphasized-affix w-full">
-                            <mat-label>Cédula</mat-label>
-                            <input
-                                type="number"
-                                 placeholder="Cédula"
-                                [formControlName]="'cedula'"
-                                matInput>
-                        </mat-form-field>
-                    </div>
-
-                     <!-- dirección -->
-                    <div class="sm:col-span-4">
-                        <mat-form-field class="fuse-mat-no-subscript fuse-mat-emphasized-affix w-full">
-                            <mat-label>Dirección</mat-label>
-                            <input
-                                 placeholder="Dirección"
-                                [formControlName]="'direccion'"
-                                matInput>
-                        </mat-form-field>
-                    </div>
-                    <!-- telefono -->
-                    <div class="sm:col-span-4">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
-                            <mat-label>Teléfono</mat-label>
-                            <mat-icon
-                                class="icon-size-5"
-                                [svgIcon]="'heroicons_solid:phone'"
-                                matPrefix></mat-icon>
-                            <input
-                                placeholder="Teléfono"
-                                type="number"
-                                [formControlName]="'telefono'"
-                                matInput>
-                        </mat-form-field>
-                    </div>
-                    <!-- Email -->
-                    <div class="sm:col-span-4">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
-                            <mat-label>Email</mat-label>
-                            <mat-icon
-                                class="icon-size-5"
-                                [svgIcon]="'heroicons_solid:mail'"
-                                matPrefix></mat-icon>
-                            <input
-                            type="email"
-                                [formControlName]="'email'"
+                                [formControlName]="'Autor'"
                                 matInput>
                         </mat-form-field>
                     </div>
@@ -88,10 +37,10 @@
                     <button
                         class="ml-4"
                         mat-flat-button
-                        (click)="crearClientes()"
+                        (click)="crearAutor()"
                         type="button"
                         [disabled]="accountForm.invalid"
-                        [color]="'primary'">Crear cliente
+                        [color]="'primary'">Crear autor
                     </button>
                 </div>
             </form>

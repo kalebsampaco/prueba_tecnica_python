@@ -1,1 +1,0 @@
-Š 2tsXhrBsrc/app/modules/page-landing/components/footer/footer.component.ts

@@ -9,7 +9,7 @@ import { LayoutComponent } from 'app/layout/layout.component';
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/example'
-    {path: '', pathMatch : 'full', redirectTo: 'cliente'},
+    {path: '', pathMatch : 'full', redirectTo: 'autores'},
     //{path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'home'},
     // Auth routes for guests
 
@@ -38,28 +38,10 @@ export const appRoutes: Route[] = [
             layout: 'dense'
         },
         children   : [
-            {path: 'cliente', loadChildren: () => import('app/modules/landing/home/home.module').then(m => m.LandingHomeModule)},
-            {path: 'producto', loadChildren: () => import('app/modules/landing/comunidad/comunidad.module').then(m => m.ComunidadModule)},
-            {path: 'venta', loadChildren: () => import('app/modules/landing/estudiando/estudiando.module').then(m => m.LandingEstudiandoModule)},
-            {path: 'childs', loadChildren: () => import('app/modules/landing/childs/childs.module').then(m => m.ChildsModule)},
-            {path: 'blogs', loadChildren: () => import('app/modules/landing/historial/historial.module').then(m => m.LandingHistorialModule)},
-            {path: 'espiritual', loadChildren: () => import('app/modules/landing/historial/historial.module').then(m => m.LandingHistorialModule)},
-            {path: 'soporte', loadChildren: () => import('app/modules/landing/historial/historial.module').then(m => m.LandingHistorialModule)},
-            {path: 'consejeria', loadChildren: () => import('app/modules/landing/consejeria/consejeria.module').then(m => m.ConsejeriaModule)},
+            {path: 'autores', loadChildren: () => import('app/modules/landing/home/home.module').then(m => m.LandingHomeModule)},
+            {path: 'categorias', loadChildren: () => import('app/modules/landing/comunidad/comunidad.module').then(m => m.ComunidadModule)},
+            {path: 'libro', loadChildren: () => import('app/modules/landing/estudiando/estudiando.module').then(m => m.LandingEstudiandoModule)},
         ]
     },
 
-    // Admin routes
-    {
-        path       : '',
-        canActivate: [NoAuthGuard],
-        canActivateChild: [NoAuthGuard],
-        component  : LayoutComponent,
-        data: {
-            layout: 'empty'
-        },
-        children   : [
-            {path: 'landing', loadChildren: () => import('app/modules/page-landing/index/index.module').then(m => m.IndexModule)},
-        ]
-    }
 ];

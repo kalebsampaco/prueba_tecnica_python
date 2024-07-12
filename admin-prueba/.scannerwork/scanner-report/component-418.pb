@@ -1,1 +1,0 @@
-¢ 2cssX•hr7src/app/modules/page-landing/index/index.component.scss

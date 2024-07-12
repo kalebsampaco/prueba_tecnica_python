@@ -11,7 +11,7 @@ describe('ChildsComponent', () => {
       imports: [ChildsComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ChildsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -21,3 +21,4 @@ describe('ChildsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

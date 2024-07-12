@@ -9,25 +9,25 @@ import moment from 'moment';
 const plans: any = [
     {
         id: 0,
-        title: 'Crear cliente',
+        title: 'Autores',
         content: '',
-        url: 'cliente',
+        url: 'autores',
         icon:'home',
         rol: ["PYMES_DIR"]
     },
     {
         id: 1,
-        title: 'Productos',
+        title: 'Categorias',
         content: '',
-        url: 'producto',
+        url: 'categorias',
         icon:'assistant',
         rol: ["PYMES_DIR"]
     },
     {
         id: 2,
-        title: 'Ventas',
+        title: 'Libro',
         content: '',
-        url: 'venta',
+        url: 'libro',
         icon:'trending_up',
         rol: ["PYMES_DIR"]
     },

@@ -1,1 +1,0 @@
-œ 2jsX3hr'src/@fuse/tailwind/plugins/icon-size.js

@@ -1,1 +1,0 @@
-  2jsXehr,src/@fuse/tailwind/utils/generate-palette.js

@@ -1,1 +1,0 @@
-Ë 2cssX;hr:src/app/layout/common/quick-chat/quick-chat.component.scss

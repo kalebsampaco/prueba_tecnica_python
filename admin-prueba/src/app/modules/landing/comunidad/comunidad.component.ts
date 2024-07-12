@@ -6,13 +6,9 @@ import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angula
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EstudiandoService } from 'app/services/estudiando/estudiando.service';
 
-export interface Producto {
-    id: number,
-    codigo: string,
-    nombre: string,
-    valor_venta: number,
-    iva: boolean,
-    porcentaje: number
+export interface Categoria {
+    idCategoria: number,
+    categoria: string,
 }
 
 @Component({
@@ -26,10 +22,10 @@ export class ComunidadComponent implements OnInit
     mobileQuery: MediaQueryList;
     private _mobileQueryListener: () => void;
     accountForm: FormGroup;
-    ELEMENT_DATA: Producto[] = [];
-    displayedColumns: string[] = ['codigo', 'nombre', 'valor_venta', 'iva', 'porcentaje'];
+    ELEMENT_DATA: Categoria[] = [];
+    displayedColumns: string[] = ['idCategoria', 'categoria'];
     columnsToDisplay: string[] = this.displayedColumns.slice();
-    data: Producto[]
+    data: Categoria[]
 
     /**
      * Constructor
@@ -48,27 +44,23 @@ export class ComunidadComponent implements OnInit
     ngOnInit(): void {
         // Create the form
         this.accountForm = this._formBuilder.group({
-            codigo: ['', Validators.required],
-            nombre: ['', Validators.required],
-            valor_venta: ['', Validators.required],
-            iva: [false, Validators.required],
-            porcentaje: [0]
+            categoria: ['', Validators.required]
         });
-            this.traerProductos();
+            this.traerCategorias();
     }
 
-    traerProductos(){
-        this._estudiandoService.getProductos().subscribe((prod:any) =>{
-            console.log(prod)
-            this.ELEMENT_DATA = prod
+    traerCategorias(){
+        this._estudiandoService.getCategorias().subscribe((cat:any) =>{
+            console.log(cat)
+            this.ELEMENT_DATA = cat
             this.data = this.ELEMENT_DATA;
         })
     }
 
-    crearProducto(){
+    crearCategoria(){
         const body = this.accountForm.getRawValue()
         console.log(body)
-        this._estudiandoService.createProduct(body).subscribe((prod:any) =>{
+        this._estudiandoService.createCategoria(body).subscribe((cat:any) =>{
              this.accountForm.reset();
              this.ngOnInit();
         })
