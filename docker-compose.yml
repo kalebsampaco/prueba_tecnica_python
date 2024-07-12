@@ -6,7 +6,7 @@ services:
     build:
         context: ./api/
         dockerfile: Dockerfile
-    image: fastapi:latest
+    image: kalebsampaco/fastapi:latest
     restart: unless-stopped
     ports:
       - "8001:8000"
@@ -15,7 +15,7 @@ services:
 
   front-prueba:
     container_name: front-prueba
-    image: front-prueba:latest
+    image: kalebsampaco/front-prueba:latest
     build:
         context: ./admin-prueba
         dockerfile: Dockerfile
@@ -39,7 +39,7 @@ services:
 
   db:
     container_name: ps-mysql
-    image: mysql:5.7
+    image: kalebsampaco/mysql:5.7
     restart: unless-stopped
     volumes:
        - ./db/data:/var/lib/mysql
