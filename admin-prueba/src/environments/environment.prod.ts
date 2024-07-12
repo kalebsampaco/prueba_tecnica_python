@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
     name: 'production',
-    url_api: 'http://localhost:8001/'
+    url_api: 'http://54.221.164.208:8001/'
 };
