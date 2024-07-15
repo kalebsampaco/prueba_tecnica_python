@@ -48,11 +48,29 @@ export class LandingHomeComponent
     }
 
     traerAutores(){
-        this._estudiandoService.getAutores().subscribe((autores:any) =>{
+        /* this._estudiandoService.getAutores().subscribe((autores:any) =>{
             console.log(autores)
             this.ELEMENT_DATA = autores
             this.data = this.ELEMENT_DATA;
+        }) */
+       const axios = require('axios');
+
+        let config = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'http://54.158.19.237:8001/autores',
+          headers: { }
+        };
+
+        axios.request(config)
+        .then((response) => {
+          console.log(response.data);
+          this.ELEMENT_DATA = response.data
+        this.data = this.ELEMENT_DATA;
         })
+        .catch((error) => {
+          console.log(error);
+        });
     }
 
     crearAutor(){
