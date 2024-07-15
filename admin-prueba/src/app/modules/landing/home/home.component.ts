@@ -48,12 +48,12 @@ export class LandingHomeComponent
     }
 
     traerAutores(){
-        /* this._estudiandoService.getAutores().subscribe((autores:any) =>{
+        this._estudiandoService.getAutores().subscribe((autores:any) =>{
             console.log(autores)
             this.ELEMENT_DATA = autores
             this.data = this.ELEMENT_DATA;
-        }) */
-       const axios = require('axios');
+        })
+       /* const axios = require('axios');
 
         let config = {
           method: 'get',
@@ -70,7 +70,7 @@ export class LandingHomeComponent
         })
         .catch((error) => {
           console.log(error);
-        });
+        }); */
     }
 
     crearAutor(){
